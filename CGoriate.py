@@ -57,7 +57,7 @@ class CGoriate(CRepetationalThread.CRepetationalThread):
    
     def demo(self):
         time.sleep(1)
-        test = [0.4, 0.4]
+        test = [0.7, 0.7]
         self.gc.outputPWMPair(test)
         time.sleep(5)
         
