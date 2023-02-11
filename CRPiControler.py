@@ -17,7 +17,7 @@ class CRPiControler:
             self.H = 1
             self.L = 0
                 
-            self.freq = 2000 #PWMFrequency
+            self.freq = 4000 #PWMFrequency
             self.raspberryPiPWMValue = 1000000 #raspberryPi PWM
             
         def ready(self):
