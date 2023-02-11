@@ -17,7 +17,7 @@ class CRPiControler:
             self.H = 1
             self.L = 0
                 
-            self.freq = 10000 #PWMFrequency
+            self.freq = 100000 #PWMFrequency
             self.raspberryPiPWMValue = 1000000 #raspberryPi PWM
             
         def ready(self):
@@ -50,6 +50,13 @@ class CRPiControler:
             self.pi.stop()
 
         def PWMDuty(self, dutyRatio):
+            if dutyRatio < 0:
+                dutyRatio = 0
+            elif dutyRatio > 1:
+                dutyRatio = 1
+            else:
+                pass
+            
             return int(self.raspberryPiPWMValue * dutyRatio)
         
         def PWMOutput(self, pin, dutyRatio):
