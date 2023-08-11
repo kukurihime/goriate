@@ -59,6 +59,10 @@ class CGoriate(CRepetationalThread.CRepetationalThread):
         time.sleep(1)
         test = [0.9, 0.9]
         self.gc.outputPWMPair(test)
+        
+        test = [0.9, 0.9]
+        self.gc.outputPWMPair(test)
+        
         time.sleep(5)
         
         self.gc.stopPWMPair()
