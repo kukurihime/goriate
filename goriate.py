@@ -22,7 +22,7 @@ argv = sys.argv
 
 go = CGoriate.CGoriate(argv)
 #go.start() #other thread
-go.demo()
+go.loopStart()
 
 #command proccess loop
 #rki = CRealtimeKeyInput.CRealtimeKeyInput()
