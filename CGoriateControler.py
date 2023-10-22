@@ -49,15 +49,15 @@ class CGoriateControler:
         self.ts.setTargetAt(0, num)
                 
     def outputPWMPair(self, PWMPair):
-        self.rpc.PWMOutput(self.rpc.leftPWM, PWMPair[0])
-        self.rpc.PWMOutput(self.rpc.rightPWM, PWMPair[1])
+        self.rpc.pwmOutput(self.rpc.leftPWM, PWMPair[0])
+        self.rpc.pwmOutput(self.rpc.rightPWM, PWMPair[1])
         
     def forword(self):
         self.rpc.pwmOutput(self.rpc.leftD, 0.9)
         
     def stopPWMPair(self):
-        self.rpc.PWMStop(12)
-        self.rpc.PWMStop(13)
+        self.rpc.pwmStop(12)
+        self.rpc.pwmStop(13)
         
 if __name__ == "__main__":
     gc = CGoriateControler()

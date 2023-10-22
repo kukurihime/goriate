@@ -52,13 +52,13 @@ class CRPiControler:
         def PWMDuty(self, dutyRatio):
             return int(self.raspberryPiPWMValue * dutyRatio)
         
-        def PWMOutput(self, pin, dutyRatio):
+        def pwmOutput(self, pin, dutyRatio):
             if self.dummyFlg:
                 return
             
             self.pi.hardware_PWM(pin, self.freq, self.PWMDuty(dutyRatio))
         
-        def PWMStop(self, pin):
+        def pwmStop(self, pin):
             if self.dummyFlg:
                 return
             
