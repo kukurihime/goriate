@@ -6,6 +6,7 @@ Created on Sun Feb  5 23:20:51 2023
 @author: kukurihime
 """
 import CRPiControler
+import time
 
 class CGoriateControler:
     def __init__(self):
@@ -61,5 +62,5 @@ class CGoriateControler:
 if __name__ == "__main__":
     gc = CGoriateControler()
     gc.forword()
-    
+    time.sleep(5)
         

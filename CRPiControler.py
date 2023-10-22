@@ -29,8 +29,8 @@ class CRPiControler:
             self.pi.set_mode(self.rightD, pigpio.OUTPUT)
 
             self.off(self.leftD)
-            self.off(self.in1P)
-            self.off(self.in2P)
+            self.off(self.leftPWM)
+            self.off(self.rightPWM)
             self.off(self.rightD)
             
         def finish(self):
