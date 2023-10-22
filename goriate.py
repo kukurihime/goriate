@@ -21,7 +21,6 @@ argv = sys.argv
 #    argv.append("real") 
 
 go = CGoriate.CGoriate(0.1)
-#go.start() #other thread
 go.loopStart()
 
 
