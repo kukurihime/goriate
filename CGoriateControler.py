@@ -59,14 +59,14 @@ class CGoriateControler:
         self.rpc.on(self.rpc.leftD)
         self.rpc.pwmOutput(self.rpc.leftPWM, 0.9)
         
-        self.rpc.off(self.rpc.rightD)
+        self.rpc.on(self.rpc.rightD)
         self.rpc.pwmOutput(self.rpc.rightPWM, 0.9)
         
     def back(self):
         self.rpc.off(self.rpc.leftD)
         self.rpc.pwmOutput(self.rpc.leftPWM, 0.9)
         
-        self.rpc.on(self.rpc.rightD)
+        self.rpc.off(self.rpc.rightD)
         self.rpc.pwmOutput(self.rpc.rightPWM, 0.9)
         
     def stopPWMPair(self):
