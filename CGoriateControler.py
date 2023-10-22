@@ -8,9 +8,8 @@ Created on Sun Feb  5 23:20:51 2023
 import CRPiControler
 
 class CGoriateControler:
-#    def __init__(self, ts):
     def __init__(self):
-#        self.ts = ts
+
         self.speedTable = { \
                            -1:(0.0, 0.6), \
                            0:(0.0, 0.0), \
@@ -23,8 +22,7 @@ class CGoriateControler:
         self.maxSpeed = 5
         self.minSpeed = -1
         self.rpcMode = True #full functional mode
-#        if self.ts.getSystemMode() == 'dummy': 
-#            self.rpcMode = False
+
         
         self.rpc = CRPiControler.CRPiControler(self.rpcMode)
         self.rpc.ready()

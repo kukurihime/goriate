@@ -6,55 +6,39 @@ Created on Sun Feb  5 23:17:28 2023
 @author: kukurihime
 """
 import time
-#import CTrainStatus
 import CGoriateControler
-#import CTrainCameraView
-#import CTrainCameraMQTTSub
-import CRepetationalThread
+import CControlLoop
+import CVL53L0X
+import CI2cRPi
 
-
-class CGoriate(CRepetationalThread.CRepetationalThread):
-    def __init__(self, argv, interval = 0.1):
-        super().__init__(interval)
-#        self.ts = CTrainStatus.CTrainStatus(argv)
-#        self.tcv = CTrainCameraView.CTrainCameraView(self.ts) #another thread
-#        self.gc = CGoriateControler.CGoriateControler(self.ts)
+class CGoriate(CControlLoop.CControlLoop):
+    def __init__(self,  expectedLoopTime = 0.1):
+        super().__init__(expectedLoopTime)
         self.gc = CGoriateControler.CGoriateControler()
-#        self.tcms = CTrainCameraMQTTSub.CTrainCameraMQTTSub(self.tc)
+        self.sensorCluster = CVL53L0X.CVL53L0X(CI2cRPi.CI2cRPi(busId = 1, i2cAddress = CVL53L0X.i2cDefaultAddress(), rate = 115200))
         
-#        self.tcv.start()
+    def loopFunc(self):
+        distance = self.sensorClusterself.getCategoryVal('distance')
+        dist = distance[0]
+        if dist > 1.024:
+            if not dist > 2048:
+                test = [0.9, 0.9]
+                self.gc.outputPWMPair(test)
+            else:
+                self.gc.stopPWMPair()
+        else:
+            if dist < 128:
+                test = [-0.9, -0.9]
+                self.gc.outputPWMPair(test)
+            else:
+                self.gc.stopPWMPair()
+                
         
-    def func(self):
-        #if not self.tcms.isConnected():
-        #    print('test2')
-        #    self.tcms.connect()
-        
-#        self.valueUpdate()
-#        self.targetUpdate()
-        self.execute()
-#       if not self.ts.getCommand() == 'q':
-#           self.setCommand( "")
+    def postProcess(self): 
+        pass
     
-#   def valueUpdate(self):
-#       self.ts.update()
     
-#    def targetUpdate(self):
-#        self.tc.statusUpdate()
-
-    def execute(self): 
-        self.gc.run()
-        
-#    def setCommand(self, command):
-#        self.command = command
-#        self.tc.setCommand(command)
-        
-#    def getCommand(self):
-#        return self.ts.getCommand()
     
-#    def finish(self):
-#        self.tcv.join()
-    
-   
     def demo(self):
         time.sleep(1)
         test = [0.9, 0.9]
@@ -66,3 +50,8 @@ class CGoriate(CRepetationalThread.CRepetationalThread):
         time.sleep(5)
         
         self.gc.stopPWMPair()
+        
+if __name__ == '__main__':
+    goriate = CGoriate()
+    goriate.start()
+    
