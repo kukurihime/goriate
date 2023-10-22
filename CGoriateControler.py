@@ -28,24 +28,13 @@ class CGoriateControler:
         self.rpc.ready()
 
     def statusUpdate(self): 
-        command = self.ts.getCommand()
-        if command == 'q':
-            self.stop()
-        elif command == 'u':
-            self.setTargetSpeed(self.ts.getStatusAt(0) + 1)
-        elif command == 'y':
-            self.setTargetSpeed(self.ts.getStatusAt(0) - 1)
-        
-        self.ts.setStatusFromTarget()
+        pass
     
     def run(self):
-        self.outputPWMPair(self.speedTable[self.ts.getStatusAt(0)])
-        
+        pass
         
     def stop(self):
-        self.ts.setStatus([0])
-        self.ts.update()
-        self.run()
+        pass
     
     def setTargetSpeed(self, num):
         if type(num) is not int:
@@ -59,10 +48,18 @@ class CGoriateControler:
         self.ts.setTargetAt(0, num)
                 
     def outputPWMPair(self, PWMPair):
-        self.rpc.PWMOutput(self.rpc.in1P, PWMPair[0])
-        self.rpc.PWMOutput(self.rpc.in2P, PWMPair[1])
+        self.rpc.PWMOutput(self.rpc.leftPWM, PWMPair[0])
+        self.rpc.PWMOutput(self.rpc.rightPWM, PWMPair[1])
+        
+    def forword(self):
+        self.rpc.pwmOutput(self.rpc.leftD, 0.9)
         
     def stopPWMPair(self):
         self.rpc.PWMStop(12)
         self.rpc.PWMStop(13)
+        
+if __name__ == "__main__":
+    gc = CGoriateControler()
+    gc.forword()
+    
         
