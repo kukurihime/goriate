@@ -58,8 +58,6 @@ class CGoriateControler:
         
         self.ts.setTargetAt(0, num)
                 
-        
-    
     def outputPWMPair(self, PWMPair):
         self.rpc.PWMOutput(self.rpc.in1P, PWMPair[0])
         self.rpc.PWMOutput(self.rpc.in2P, PWMPair[1])

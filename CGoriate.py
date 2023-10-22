@@ -28,16 +28,20 @@ class CGoriate(CControlLoop.CControlLoop):
             if not dist > 2.048:
                 test = [0.9, 0.9]
                 self.gc.outputPWMPair(test)
+                print('forword')
                 res = "2.048 < dist"
             else:
+                print('stop')
                 self.gc.stopPWMPair()
                 res = "1.024 < dist < 2.048"
         else:
             if dist < 0.128:
+                print('back')
                 test = [-0.9, -0.9]
                 self.gc.outputPWMPair(test)
                 res = "dist < 0.128"
             else:
+                print('stop')
                 self.gc.stopPWMPair()
                 res = "0.128 < dist < 1.024"
                 
