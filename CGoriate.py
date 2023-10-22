@@ -20,6 +20,7 @@ class CGoriate(CControlLoop.CControlLoop):
         
     def loopFunc(self):
         res = ""
+        self.sensorCluster.readCategory('distance')
         distance = self.sensorCluster.getCategoryVal('distance')
         dist = distance[0]
         print (dist)
