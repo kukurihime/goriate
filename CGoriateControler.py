@@ -68,9 +68,3 @@ class CGoriateControler:
         self.rpc.PWMStop(12)
         self.rpc.PWMStop(13)
         
-    
- #   def setMQTTConnected(self, flg):
- #       self.ts.setMQTTConnected(flg)
-        
- #   def setCommand(self, command):
- #       self.ts.setCommand(command)

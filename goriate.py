@@ -20,7 +20,7 @@ argv = sys.argv
 #if len( argv ) == 1:
 #    argv.append("real") 
 
-go = CGoriate.CGoriate(argv)
+go = CGoriate.CGoriate(0.1)
 #go.start() #other thread
 go.loopStart()
 
