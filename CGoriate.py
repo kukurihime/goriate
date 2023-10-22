@@ -18,7 +18,7 @@ class CGoriate(CControlLoop.CControlLoop):
         self.sensorCluster = CVL53L0X.CVL53L0X(CI2cRPi.CI2cRPi(busId = 1, i2cAddress = CVL53L0X.i2cDefaultAddress(), rate = 115200))
         
     def loopFunc(self):
-        distance = self.sensorClusterself.getCategoryVal('distance')
+        distance = self.sensorCluster.getCategoryVal('distance')
         dist = distance[0]
         if dist > 1.024:
             if not dist > 2048:
