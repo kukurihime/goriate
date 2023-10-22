@@ -10,7 +10,7 @@ class CRPiControler:
                 self.pi = pigpio.pi()
                 
             self.leftD = 16
-            self.leftPWMP = 12 #hardwarePWM0
+            self.leftPWM = 12 #hardwarePWM0
             self.rightPWM = 13 #hardwarePWM1
             self.rightD = 20 #LED
 
