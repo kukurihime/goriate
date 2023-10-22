@@ -24,6 +24,7 @@ go = CGoriate.CGoriate(argv)
 #go.start() #other thread
 go.loopStart()
 
+
 #command proccess loop
 #rki = CRealtimeKeyInput.CRealtimeKeyInput()
 #rki.setDaemon(True)
