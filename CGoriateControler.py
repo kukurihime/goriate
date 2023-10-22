@@ -62,6 +62,13 @@ class CGoriateControler:
         self.rpc.off(self.rpc.rightD)
         self.rpc.pwmOutput(self.rpc.rightPWM, 0.9)
         
+    def back(self):
+        self.rpc.off(self.rpc.leftD)
+        self.rpc.pwmOutput(self.rpc.leftPWM, 0.9)
+        
+        self.rpc.on(self.rpc.rightD)
+        self.rpc.pwmOutput(self.rpc.rightPWM, 0.9)
+        
     def stopPWMPair(self):
         self.rpc.pwmStop(12)
         self.rpc.pwmStop(13)
@@ -69,6 +76,8 @@ class CGoriateControler:
 if __name__ == "__main__":
     gc = CGoriateControler()
     gc.forword()
+    time.sleep(5)
+    gc.back()
     time.sleep(5)
     gc.stop()
         
