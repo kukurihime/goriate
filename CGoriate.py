@@ -24,8 +24,8 @@ class CGoriate(CControlLoop.CControlLoop):
         distance = self.sensorCluster.getCategoryVal('distance')
         dist = distance[0]
         print (dist)
-        if dist > 0.512:
-            if not dist > 1.024:
+        if dist > 0.384:
+            if not dist > 0.512:
                 self.gc.forword()
                 print('forword')
                 res = "1.024 < dist"
