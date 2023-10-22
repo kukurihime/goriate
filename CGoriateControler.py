@@ -54,6 +54,7 @@ class CGoriateControler:
         self.rpc.pwmOutput(self.rpc.rightPWM, PWMPair[1])
         
     def forword(self):
+        self.rpc.on(self.rpc.leftD)
         self.rpc.pwmOutput(self.rpc.leftPWM, 0.9)
         
     def stopPWMPair(self):
