@@ -37,6 +37,8 @@ class CGoriateControler:
     def stop(self):
         self.rpc.pwmStop(self.rpc.leftPWM)
         self.rpc.pwmStop(self.rpc.rightPWM)
+        self.rpc.off(self.rpc.leftD)
+        self.rpc.off(self.rpc.rightD)
     
     def setTargetSpeed(self, num):
         if type(num) is not int:
