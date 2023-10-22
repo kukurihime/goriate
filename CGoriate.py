@@ -24,20 +24,20 @@ class CGoriate(CControlLoop.CControlLoop):
         distance = self.sensorCluster.getCategoryVal('distance')
         dist = distance[0]
         print (dist)
-        if dist > 1.024:
-            if not dist > 2.048:
-                test = [0.9, 0.9]
+        if dist > 0.512:
+            if not dist > 1.024:
+                test = [-0.9, -0.9]
                 self.gc.outputPWMPair(test)
                 print('forword')
-                res = "2.048 < dist"
+                res = "1.024 < dist"
             else:
                 print('stop')
                 self.gc.stopPWMPair()
-                res = "1.024 < dist < 2.048"
+                res = "0.512 < dist < 1.024"
         else:
             if dist < 0.128:
                 print('back')
-                test = [-0.9, -0.9]
+                test = [0.9, 0.9]
                 self.gc.outputPWMPair(test)
                 res = "dist < 0.128"
             else:
