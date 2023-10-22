@@ -35,7 +35,8 @@ class CGoriateControler:
         pass
         
     def stop(self):
-        pass
+        self.rpc.pwmStop(self.rpc.leftPWM)
+        self.rpc.pwmStop(self.rpc.rightPWM)
     
     def setTargetSpeed(self, num):
         if type(num) is not int:
@@ -63,4 +64,5 @@ if __name__ == "__main__":
     gc = CGoriateControler()
     gc.forword()
     time.sleep(5)
+    gc.stop()
         
